@@ -3,9 +3,9 @@ title: "About"
 site: distill::distill_website
 links:
   - label: '`r fontawesome::fa("twitter")` Twitter'
-    url: "https://twitter.com/yyinaa"
+    url: "https://twitter.com/yinaquique"
   - label: '`r fontawesome::fa("github")` Github'
-    url: "https://github.com/yinaa"
+    url: "https://github.com/yyinaa"
   - label: '`r fontawesome::fa("paper-plane")` Email'
     url: "yinaquique@northwestern.edu"
 output: html_document
@@ -138,18 +138,18 @@ knitr::include_graphics("images/Yina_Quique.png")
 
 <center>
 
-## Rob Cavanaugh
+## Yina Quique
 
 </center>
 
-I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings.
+I am a clinician-scientist committed to improving rehabilitation outcomes and healthcare services for stroke survivors with aphasia. I am especially interested in developing culturally-sensitive and language-specific interventions for Spanish speakers with aphasia. 
 
-Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
+Outside of my work life, I enjoy coffee dates with David, my husband. I also love reading children's books to my niece and nephew over zoom.  
 
 ::: {.centering}
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders}
-[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders}
-[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){.borders}
+[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/yinaquique){.borders}
+[`r fontawesome::fa("github")` Github](https://github.com/yyinaa){.borders}
+[`r fontawesome::fa("paper-plane")` Email](yinaquique@northwestern.edu){.borders}
 [`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
 :::
 
@@ -158,19 +158,46 @@ Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors
 
 <br class = "mobileonly-break">
 
-### Research
+### My research path
 
-My long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I'm also interested in statistical programming (R + python), data science, and data visualization - especially using these tools to improve science communication.
+I was trained as a Speech and Language Pathologist in Colombia, where I practiced for more than seven years. During that time, it gradually became evident that aphasia assessments and treatments were not designed for Spanish-speaking individuals and that a direct translation from English resources did not fully meet the needs of my patients. Moreover, over 85% of published aphasia treatment research has focused on English, leaving a need to advance aphasia research and evidence-based service delivery in other languages and cultures. To address this disparity, my research program has included 1) a doctoral training that allowed me to help improving aphasia rehabilitation for Spanish speakers by adapting assessments and a gold-standard aphasia treatment –script training– for Colombian people with aphasia (Quique et al., 2018; Quique et al., submitted). 2) An international aphasia research network, the Collaboration of Aphasia Trialists –CATs, where I work to adapt assessments for linguistically diverse populations. CATs has also helped me to foster international collaborations between educational, research, and healthcare institutions, preparing me to contribute to positive real-world changes in service delivery and outcomes for people with aphasia. 3) A theoretical-driven approach to understanding the mechanisms of aphasia treatment response combined with advanced statistical methodologies (Quique et al., 2019). 
 
+For my postdoctoral training, I  continue to continue to strengthen my aphasia rehabilitation training working with Dr. Leora Cherney and combine it with practical training in healthcare service delivery and outcomes research. 
 
 </br>
 
 ### Recent Publications
 
-Quique, Y, Evans, WS and Dickey, MW. (2019). Acquisition & generalization responses in aphasia naming treatment: a meta-analysis of semantic feature analysis outcomes. American Journal of Speech-Language Pathology. Advance online advance publication. doi: 10.1044/2018_ajslp-17-0155
+Evans, W. S., Hula, W.D., **Quique, Y.**, Starns, J. J. (2020). How much time do people with aphasia need to respond during picture naming? Estimating optimal response time cutoffs using a multinomial ex-gaussian approach. Journal of Speech, Language, and Hearing Research. 1–16.
+
+**Quique, Y. M.**, Evans, W. S., & Dickey, M. W. (2019). Acquisition and generalization responses in aphasia naming treatment: a meta-analysis of Semantic Feature Analysis outcomes. American Journal of Speech-Language Pathology, 28(1S), 230-246. 
+
+Evans, WS, **Quique, Y.M** (in press). Understanding speed-accuracy processing dynamics in aphasia using response time modeling. Seminars in Speech and Language.
+
+Evans, WS, Cavanaugh, RB, **Quique, Y**, Boss, E, Starns, JJ, Hula, WD. (in press). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game. Journal of Speech, Language, and Hearing Research
+
+**Quique, Y.**, Swiderski, A. M., Hula, W., & Dickey, M. (under review). Meta-analysis of Treatment of Underlying Forms: dosage-related and person-level predictors of acquisition and generalization response. 
+
+Cavanaugh, RB, Kravetz, C, Jarold, L, **Quique, Y**, Turner, R, Evans, WS. (under review). Is there a research-practice dosage gap in aphasia rehabilitation? 
+
+**Quique, Y**, Evans, WS, Ortega-Llebaría, M, Zipze, L., Dickey, MW (under review). Get in Sync: Speech Entrainment Mechanisms and Individual Characteristics for Scripted-Sentence Learning in Aphasia.
+
+</br>
+
+### Peer-reviewed published abstracts 
+**Quique, Y.**, Swiderski, A. M., Hula, W., & Dickey, M. (2019). Meta-analysis of Treatment of Underlying Forms: dosage-related and person-level predictors of acquisition and generalization response. Front. Hum. Neurosci. Academy of Aphasia 56th Annual Meeting. doi: 10.3389/conf.fnhum.2018.228.00004.
+
+**Quique, Y.**, Dresang, H., & Dickey, M. W. (2018). Semantic memory for objects, actions, and events in Colombian people with aphasia. Aphasiology, 32(sup1), 172-175. doi: 10.1080/02687038.2018.1485845.
 
 </br>
 
 ### Selected Presentations
 
-Quique, Y., Evans, WS., Zipze, L., Dickey, MW., (2020).  Get in sync: rhythm in speech entrainment as a mechanism for scripted-sentence learning in aphasia. Abstract for poster presentation, annual Academy of Aphasia. 
+**Quique ,Y.**, Cavanaugh, R., Starns, J., Boss, E., Hula, W., and Evans, WS (2021). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, annual Clinical Aphasiology Conference. [link to poster in slides format](images/CAC 2021 vv2.pdf)
+
+**Quique, Y.**, Evans, WS., Zipze, L., Dickey, MW., (2020).  Get in sync: rhythm in speech entrainment as a mechanism for scripted-sentence learning in aphasia. Abstract for poster presentation, annual Academy of Aphasia. [link to poster in slides format](images/AoA_final.pdf)
+
+**Quique, Y.**, Dresang, H., Dickey, MW. (2018). Semantic memory for objects, actions & events in Colombian people with aphasia. Abstract for research symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Austin, Texas.[link to poster](images/Poster fabric.jpg)
+
+**Quique, Y.**, Evans, WS and Dickey, MW. (2017). Acquisition & generalization responses in aphasia naming treatment: a meta-analysis of semantic feature analysis outcomes. Abstract for Research Symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Snowbird, Utah. [link to poster](images/CAC poster copy.pdf)
+
