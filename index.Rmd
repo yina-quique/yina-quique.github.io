@@ -12,17 +12,6 @@ output: html_document
 ---
 
 ```{css, echo = F}
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono');
-@import url('https://fonts.googleapis.com/css2?family=Bitter');
-
-html {
-  --heading-font:    "Bitter", serif;
-  --mono-font:       "DM Mono", monospace;
-  --body-font:       "Roboto", sans-serif;
-  --navbar-font:     "Bitter", sans-serif; /* websites + blogs only */
-  --aside-font:      "Roboto", sans-serif;
-}
 
 
 p{
