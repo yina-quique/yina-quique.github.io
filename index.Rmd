@@ -144,13 +144,13 @@ knitr::include_graphics("images/Yina_Quique.png")
 
 I am a clinician-scientist committed to improving rehabilitation outcomes and healthcare services for stroke survivors with aphasia. I am especially interested in developing culturally-sensitive and language-specific interventions for Spanish speakers with aphasia. 
 
-Outside of my work life, I enjoy coffee dates with David, my husband. I also love reading children's books to my niece and nephew over zoom.  
+Outside of my work life, I enjoy coffee dates with my husband. I also love reading children's books to my niece and nephew.  
 
 ::: {.centering}
 [`r fontawesome::fa("twitter")` Twitter](https://twitter.com/yinaquique){.borders}
 [`r fontawesome::fa("github")` Github](https://github.com/yyinaa){.borders}
 [`r fontawesome::fa("paper-plane")` Email](yinaquique@northwestern.edu){.borders}
-[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
+[`r fontawesome::fa("university")` Pitt Lab](https://www.lrcl.pitt.edu/people/yina-quique-ms){.borders}
 :::
 
 ::: {style="clear:both;"}
@@ -192,6 +192,7 @@ Cavanaugh, RB, Kravetz, C, Jarold, L, **Quique, Y**, Turner, R, Evans, WS. (unde
 </br>
 
 ### Peer-reviewed published abstracts 
+
 **Quique, Y.**, Swiderski, A. M., Hula, W., & Dickey, M. (2019). Meta-analysis of Treatment of Underlying Forms: dosage-related and person-level predictors of acquisition and generalization response. Front. Hum. Neurosci. Academy of Aphasia 56th Annual Meeting. doi: 10.3389/conf.fnhum.2018.228.00004.
 
 **Quique, Y.**, Dresang, H., & Dickey, M. W. (2018). Semantic memory for objects, actions, and events in Colombian people with aphasia. Aphasiology, 32(sup1), 172-175. doi: 10.1080/02687038.2018.1485845.
@@ -204,7 +205,7 @@ Cavanaugh, RB, Kravetz, C, Jarold, L, **Quique, Y**, Turner, R, Evans, WS. (unde
 
 **Quique, Y.**, Evans, WS., Zipze, L., Dickey, MW., (2020).  Get in sync: rhythm in speech entrainment as a mechanism for scripted-sentence learning in aphasia. Abstract for poster presentation, annual Academy of Aphasia. [link to poster in slides format](images/AoA_final.pdf)
 
-**Quique, Y.**, Dresang, H., Dickey, MW. (2018). Semantic memory for objects, actions & events in Colombian people with aphasia. Abstract for research symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Austin, Texas.[link to poster](images/Final Poster.pdf)
+**Quique, Y.**, Dresang, H., Dickey, MW. (2018). Semantic memory for objects, actions & events in Colombian people with aphasia. Abstract for research symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Austin, Texas. [link to poster](images/Final Poster.pdf)
 
 **Quique, Y.**, Evans, WS and Dickey, MW. (2017). Acquisition & generalization responses in aphasia naming treatment: a meta-analysis of semantic feature analysis outcomes. Abstract for Research Symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Snowbird, Utah. [link to poster](images/CAC poster copy.pdf)
 
