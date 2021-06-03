@@ -72,12 +72,11 @@ Key Interests
 
 - `r fontawesome::fa("chart-line")` Aphasia treatment outcomes
 
-- `r fontawesome::fa("hospital-user")` Implementation Science
+- `r fontawesome::fa("globe-americas")`Spanish speakers with aphasia
 
-- `r fontawesome::fa("chart-pie")` Data science & Statistics
+- `r fontawesome::fa("hospital-user")` Health services and outcomes research
 
-- `r fontawesome::fa("r-project")` #R Stats & R Shiny 
-
+- `r fontawesome::fa("laptop-medical")` Technology for aphasia rehabilitation
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
