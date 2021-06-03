@@ -14,7 +14,7 @@ library(here)
  
 
 # Convert to PDF using Pagedown
-pagedown::chrome_print(input = "~/Documents/github-repos/personal-website-distill/cv.html",
+pagedown::chrome_print(input = here("cv.html"),
                        output = here("CV", "cv.pdf"))
 
 rmarkdown::render_site(encoding = 'UTF-8')
