@@ -6,9 +6,10 @@
 # for the HTML and PDF rendering. This exercise is left to the reader.
 
 library(here)
-# Knit the HTML version
+# Knit the HTML version of the cv
   rmarkdown::render("CV/cv.rmd")
-  
+
+# moves the file cv.html to the main website folder
   file.rename(here("CV", "cv.html"),
               here("cv.html"))
  
@@ -17,7 +18,13 @@ library(here)
 pagedown::chrome_print(input = here("cv.html"),
                        output = here("CV", "cv.pdf"))
 
+# rebuilds the website with a new cv
 rmarkdown::render_site(encoding = 'UTF-8')
 
+# note: after these, you must run the git commands in the terminal
+
+#git add .
+#git commit -m "a message about the new stuff"
+#git push
 
 
