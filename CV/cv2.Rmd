@@ -125,7 +125,7 @@ CV %<>% print_section('publications', glue_template = "citation")
 CV %<>% print_section('presentations', glue_template = "citation")
 ```
 
-Teaching {data-icon=university}
+**Teaching** {data-icon=university}
 --------------------------------------------------------------------------------
 
 
