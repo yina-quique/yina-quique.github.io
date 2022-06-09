@@ -138,7 +138,7 @@ knitr::include_graphics("images/Yina_Quique1.jpg")
 
 <center>
 
-## Yina Quique
+## Yina Quique, Ph.D
 
 </center>
 
