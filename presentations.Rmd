@@ -1,0 +1,71 @@
+---
+title: "Presentations"
+description: |
+  Some additional details about the website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css, echo = F}
+.fcolumns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 10px
+}
+.fcolumn1 {
+  flex: 10%;
+}
+.fcolumn2 {
+  flex: 90%;
+}
+
+.fcolumn3 {
+  flex: 15%;
+}
+.fcolumn4 {
+  flex: 80%;
+}
+
+.fcolumnspace {
+  flex: 5%;
+}
+
+
+d-title {
+    display: none;
+  }
+
+.feat_img{
+  height: auto;
+  width: 95%!important;
+}
+```
+
+
+```{r, include=FALSE}
+
+library(magrittr) # For the pipe
+library(dplyr)
+source("R/cv_printing_functions_website.r")
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1p4F9WyTBiXNOkmspuJdPZdLaQm7F-rj3lAgrL5yH3Pg/edit?usp=sharing",  
+  pdf_mode = 'false'
+)
+CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
+
+```
+
+```{r, echo = F, layout = "l-body-outset"}
+htmltools::tags$h2("Presentations")
+```
+
+```{r results='asis', echo = FALSE, layout = "l-body-outset"}
+CV %<>% print_section("presentations", glue_template = "poster") 
+```
+

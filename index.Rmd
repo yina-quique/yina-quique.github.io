@@ -150,7 +150,7 @@ Outside of my work life, I enjoy coffee dates with my husband. I also love readi
 [`r fontawesome::fa("twitter")` Twitter](https://twitter.com/yinaquique){.borders}
 [`r fontawesome::fa("github")` Github](https://github.com/yyinaa){.borders}
 [`r fontawesome::fa("paper-plane")` Email](mailto:yinaquique@northwestern.edu){.borders}
-[`r fontawesome::fa("university")` Pitt Lab](https://www.lrcl.pitt.edu/people/yina-quique-ms){.borders}
+[`r fontawesome::fa("orcid")` ORCID](https://orcid.org/0000-0001-9129-4742){.borders}
 :::
 
 ::: {style="clear:both;"}
@@ -169,73 +169,4 @@ I was trained as a Speech and Language Pathologist in Colombia, where I practice
 3) A theoretical-driven approach to understanding the mechanisms of aphasia treatment response combined with advanced statistical methodologies (Quique et al., 2019). 
 
 For my postdoctoral training, I'm strengthening my aphasia rehabilitation training by working with Dr. Leora Cherney. I'm also combining it with practical training in healthcare service delivery and outcomes research at the Center for Education in Health Sciences,Northwestern University
-
-</br>
-
-```{r, include=FALSE}
-library(magrittr) # For the pipe
-source("R/cv_printing_functions_website.r")
-# Read in all data and initialize a CV printer object
-CV <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1p4F9WyTBiXNOkmspuJdPZdLaQm7F-rj3lAgrL5yH3Pg/edit?usp=sharing",  
-  pdf_mode = 'false'
-)
-```
-
-</br>
-
-### Recent Publications
-
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
-CV %<>% print_section("publications") 
-```
-
-</br>
-
-### Selected Presentations
-
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
-CV %<>% print_section("presentations", glue_template = "poster") 
-```
-
-<!-- </br> -->
-
-<!-- ### Recent Publications -->
-
-<!-- Evans, W. S., Hula, W.D., **Quique, Y.**, Starns, J. J. (2020). How much time do people with aphasia need to respond during picture naming? Estimating optimal response time cutoffs using a multinomial ex-gaussian approach. Journal of Speech, Language, and Hearing Research. 1–16. -->
-
-<!-- **Quique, Y. M.**, Evans, W. S., & Dickey, M. W. (2019). Acquisition and generalization responses in aphasia naming treatment: a meta-analysis of Semantic Feature Analysis outcomes. American Journal of Speech-Language Pathology, 28(1S), 230-246.  -->
-
-<!-- Evans, WS, **Quique, Y.M** (in press). Understanding speed-accuracy processing dynamics in aphasia using response time modeling. Seminars in Speech and Language. -->
-
-<!-- Evans, WS, Cavanaugh, RB, **Quique, Y**, Boss, E, Starns, JJ, Hula, WD. (in press). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game. Journal of Speech, Language, and Hearing Research -->
-
-<!-- **Quique, Y.**, Swiderski, A. M., Hula, W., & Dickey, M. (under review). Meta-analysis of Treatment of Underlying Forms: dosage-related and person-level predictors of acquisition and generalization response.  -->
-
-<!-- Cavanaugh, RB, Kravetz, C, Jarold, L, **Quique, Y**, Turner, R, Evans, WS. (under review). Is there a research-practice dosage gap in aphasia rehabilitation?  -->
-
-<!-- **Quique, Y**, Evans, WS, Ortega-Llebaría, M, Zipze, L., Dickey, MW (under review). Get in Sync: Speech Entrainment Mechanisms and Individual Characteristics for Scripted-Sentence Learning in Aphasia. -->
-
-<!-- </br> -->
-
-<!-- ### Peer-reviewed published abstracts  -->
-
-<!-- **Quique, Y.**, Swiderski, A. M., Hula, W., & Dickey, M. (2019). Meta-analysis of Treatment of Underlying Forms: dosage-related and person-level predictors of acquisition and generalization response. Front. Hum. Neurosci. Academy of Aphasia 56th Annual Meeting. doi: 10.3389/conf.fnhum.2018.228.00004. -->
-
-<!-- **Quique, Y.**, Dresang, H., & Dickey, M. W. (2018). Semantic memory for objects, actions, and events in Colombian people with aphasia. Aphasiology, 32(sup1), 172-175. doi: 10.1080/02687038.2018.1485845. -->
-
-<!-- </br> -->
-
-<!-- ### Selected Presentations -->
-
-<!-- **Quique ,Y.**, Cavanaugh, R., Starns, J., Boss, E., Hula, W., and Evans, WS (2021). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, annual Clinical Aphasiology Conference. [link to poster in slides format](images/CAC 2021 vv2.pdf) -->
-
-<!-- **Quique, Y.**, Evans, WS., Zipze, L., Dickey, MW., (2020).  Get in sync: rhythm in speech entrainment as a mechanism for scripted-sentence learning in aphasia. Abstract for poster presentation, annual Academy of Aphasia. [link to poster in slides format](images/AoA_final.pdf) -->
-
-<!-- **Quique, Y.**, Dresang, H., Dickey, MW. (2018). Semantic memory for objects, actions & events in Colombian people with aphasia. Abstract for research symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Austin, Texas. [link to poster](images/Final Poster.pdf) -->
-
-<!-- **Quique, Y.**, Evans, WS and Dickey, MW. (2017). Acquisition & generalization responses in aphasia naming treatment: a meta-analysis of semantic feature analysis outcomes. Abstract for Research Symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Snowbird, Utah. [link to poster](images/CAC poster copy.pdf) -->
-
 

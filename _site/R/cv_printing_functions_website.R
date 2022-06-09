@@ -1,6 +1,6 @@
 # This file contains all the code needed to parse and print various sections of your CV
 # from data. Feel free to tweak it as you desire!
-#this is a test
+
 
 #' Create a CV_Printer object.ddd
 #'
@@ -77,10 +77,11 @@ create_CV_object <-  function(data_location,
       col = "description_bullets",
       sep = "\n- ",
       na.rm = TRUE
-    ) %>%
+    ) %>% 
     dplyr::mutate(
       description_bullets = ifelse(description_bullets != "", paste0("- ", description_bullets), ""),
       start = ifelse(start == "NULL", NA, start),
+      start_NA = ifelse(is.na(start), "", start),
       end = ifelse(end == "NULL", NA, end),
       start_year = extract_year(start),
       end_year = extract_year(end),
@@ -138,23 +139,32 @@ sanitize_links <- function(cv, text){
 print_section <- function(cv, section_id, glue_template = "article"){
 
   if(glue_template == "article"){
-    glue_template <- "
+    glue_template <- '
+<div class="fcolumns">
+<div class="fcolumn1">
+{start_NA}
+</div>
+<div class="fcolumn2">
 {title}
-\n\n\n"
+</div>
+</div>
+\n\n'
   } else if(glue_template == "poster"){
     glue_template <- '
-
-<div class="flex-container">
- <div class="flex-left">
- <a href = "images/{loc}" id = "link_left">
-<img src="images/{institution}" id = "feat_img">   
+<div class="fcolumns">
+<div class="fcolumn3">
+<a href = "images/{loc}">
+<img src="images/{institution}" class = "feat_img">   
  </a>
- </div>
- <div class="flex-right">
+</div>
+<div class="fcolumnspace">
+</div>
+<div class="fcolumn4">
 <p style="margin:0px">{title}</p>
 </div>
 </div>
-\n\n\n'
+<hr style="padding:0;margin:10px">
+\n\n'
   }
 
   section_data <- dplyr::filter(cv$entries_data, section == section_id)
