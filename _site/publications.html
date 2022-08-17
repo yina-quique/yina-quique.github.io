@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1027,10 +1028,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1860,6 +1857,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1874,6 +1877,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1973,6 +2001,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1995,7 +2025,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2344,7 +2374,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2435,7 +2465,7 @@ d-title {
 </style>
 </div>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><h2>Publications</h2></p>
+<h2>Publications</h2>
 </div>
 <div class="layout-chunk" data-layout="l-body-outset">
 <div class="fcolumns">
@@ -2443,7 +2473,10 @@ d-title {
 <p>in revision</p>
 </div>
 <div class="fcolumn2">
-<p><strong>Quique, Y.,</strong> Ashaie, S., Babbit, E., Hurwitz, R., Cherney, L., (in revision). Fatigue influences social participation in aphasia: a cross-sectional and retrospective study using patient-reported measures.</p>
+<p><strong>Quique, Y.,</strong> Ashaie, S., Babbit, E., Hurwitz, R.,
+Cherney, L., (in revision). Fatigue influences social participation in
+aphasia: a cross-sectional and retrospective study using
+patient-reported measures.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2451,7 +2484,10 @@ d-title {
 <p>in revision</p>
 </div>
 <div class="fcolumn2">
-<p>Cavanaugh, R., <strong>Quique, Y.,</strong> Swiderski, A., Kallhoff, L., Terhorst, L., Wambaugh, J., Hula, W., Evans, W. (in revision). Reproducibility in small-N treatment research: a tutorial through the lens of aphasiology</p>
+<p>Cavanaugh, R., <strong>Quique, Y.,</strong> Swiderski, A., Kallhoff,
+L., Terhorst, L., Wambaugh, J., Hula, W., Evans, W. (in revision).
+Reproducibility in small-N treatment research: a tutorial through the
+lens of aphasiology</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2459,7 +2495,9 @@ d-title {
 <p>in press</p>
 </div>
 <div class="fcolumn2">
-<p>Forero, L., Bernal, M., Aguilar, O., <strong>Quique, Y.</strong> (in press). Aphasia Treatments for Spanish Speakers With Aphasia: A Scoping Review. (available in Spanish)</p>
+<p>Forero, L., Bernal, M., Aguilar, O., <strong>Quique, Y.</strong> (in
+press). Aphasia Treatments for Spanish Speakers With Aphasia: A Scoping
+Review. (available in Spanish)</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2467,7 +2505,10 @@ d-title {
 <p>2022</p>
 </div>
 <div class="fcolumn2">
-<p><strong>Quique, Y.,</strong> Cavanaugh, R., Lescht, E., &amp; Evans, W. S. (2022). Applying adaptive distributed practice to self-managed computer-based anomia treatment: A single-case experimental design. Journal of Communication Disorders, 99, 106249.</p>
+<p><strong>Quique, Y.,</strong> Cavanaugh, R., Lescht, E., &amp; Evans,
+W. S. (2022). Applying adaptive distributed practice to self-managed
+computer-based anomia treatment: A single-case experimental design.
+Journal of Communication Disorders, 99, 106249.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2475,7 +2516,10 @@ d-title {
 <p>2022</p>
 </div>
 <div class="fcolumn2">
-<p>Gnanateja, G. N., Devaraju, D. S., Heyne, M., <strong>Quique, Y.,</strong> Sitek, K., Tardif, M., … &amp; Dial, H. R. (2022). On the role of neural oscillations across timescales in speech and music processing. Frontiers in Computational Neuroscience.</p>
+<p>Gnanateja, G. N., Devaraju, D. S., Heyne, M., <strong>Quique,
+Y.,</strong> Sitek, K., Tardif, M., … &amp; Dial, H. R. (2022). On the
+role of neural oscillations across timescales in speech and music
+processing. Frontiers in Computational Neuroscience.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2483,7 +2527,10 @@ d-title {
 <p>2022</p>
 </div>
 <div class="fcolumn2">
-<p>Nguy, B., <strong>Quique, Y.,</strong> Cavanaugh, R., Evans, William S. (2022) Representation in aphasia research: an examination of US treatment studies published between 2009 and 2019. American Journal of Speech-Language Pathology. 31(3). 1424-1430</p>
+<p>Nguy, B., <strong>Quique, Y.,</strong> Cavanaugh, R., Evans, William
+S. (2022) Representation in aphasia research: an examination of US
+treatment studies published between 2009 and 2019. American Journal of
+Speech-Language Pathology. 31(3). 1424-1430</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2491,7 +2538,10 @@ d-title {
 <p>2022</p>
 </div>
 <div class="fcolumn2">
-<p>Cavanaugh, R., <strong>Quique, Y.,</strong> Dickey, M.W., Hula, W.D., Boss, E., Evans, William S. (2022) Practice-related predictors of semantic feature verification treatment for aphasia. American Journal of Speech-Language Pathology. 1–12. Advance online publication.</p>
+<p>Cavanaugh, R., <strong>Quique, Y.,</strong> Dickey, M.W., Hula, W.D.,
+Boss, E., Evans, William S. (2022) Practice-related predictors of
+semantic feature verification treatment for aphasia. American Journal of
+Speech-Language Pathology. 1–12. Advance online publication.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2499,7 +2549,11 @@ d-title {
 <p>2022</p>
 </div>
 <div class="fcolumn2">
-<p><strong>Quique, Y.,</strong> Evans, W., Ortega-Llebaria, M., Zipse, L., M., &amp; Dickey, M. (2022) Get in sync: Active Ingredients and Patient Profiles in Scripted-Sentence Learning in Spanish Speakers with Aphasia. Journal of Speech, Language, and Hearing Research. 65(4), 1478–1493.</p>
+<p><strong>Quique, Y.,</strong> Evans, W., Ortega-Llebaria, M., Zipse,
+L., M., &amp; Dickey, M. (2022) Get in sync: Active Ingredients and
+Patient Profiles in Scripted-Sentence Learning in Spanish Speakers with
+Aphasia. Journal of Speech, Language, and Hearing Research. 65(4),
+1478–1493.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2507,7 +2561,12 @@ d-title {
 <p>2021</p>
 </div>
 <div class="fcolumn2">
-<p><strong>Quique, Y</strong>., Swiderski, A. M., Hula, W., &amp; Dickey, M. (2021). Treatment of Underlying Forms: A Bayesian meta-analysis of the effects of treatment and person related variables on treatment response. Journal of Speech, Language, and Hearing Research. 64(11), 4308–4328. <strong>Shared first authorship</strong></p>
+<p><strong>Quique, Y</strong>., Swiderski, A. M., Hula, W., &amp;
+Dickey, M. (2021). Treatment of Underlying Forms: A Bayesian
+meta-analysis of the effects of treatment and person related variables
+on treatment response. Journal of Speech, Language, and Hearing
+Research. 64(11), 4308–4328. <strong>Shared first
+authorship</strong></p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2515,7 +2574,10 @@ d-title {
 <p>2021</p>
 </div>
 <div class="fcolumn2">
-<p>Cavanaugh, R., Kravetz, C., Jarold, L., <strong>Quique, Y.,</strong> Turner, R., &amp; Evans, W. S. (2021). Is There a Research-Practice Dosage Gap in Aphasia Rehabilitation?. American Journal of Speech-Language Pathology, 30(5), 2115–2129.</p>
+<p>Cavanaugh, R., Kravetz, C., Jarold, L., <strong>Quique, Y.,</strong>
+Turner, R., &amp; Evans, W. S. (2021). Is There a Research-Practice
+Dosage Gap in Aphasia Rehabilitation?. American Journal of
+Speech-Language Pathology, 30(5), 2115–2129.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2523,7 +2585,10 @@ d-title {
 <p>2021</p>
 </div>
 <div class="fcolumn2">
-<p>Evans, WS, Cavanaugh, R.B., <strong>Quique, Y</strong>, Boss, E, Starns, J.J., Hula, W.D. (2021). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game. Journal of Speech, Language, and Hearing Research.</p>
+<p>Evans, WS, Cavanaugh, R.B., <strong>Quique, Y</strong>, Boss, E,
+Starns, J.J., Hula, W.D. (2021). Playing with BEARS: Balancing Effort,
+Accuracy, and Response Speed in a Semantic Feature Verification Anomia
+Treatment Game. Journal of Speech, Language, and Hearing Research.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2531,7 +2596,9 @@ d-title {
 <p>2021</p>
 </div>
 <div class="fcolumn2">
-<p>Evans, WS, <strong>Quique, Y</strong>. (2021). Understanding speed-accuracy processing dynamics in aphasia using response time modeling. Seminars in Speech and Language. Jun;42(3):240-255.</p>
+<p>Evans, WS, <strong>Quique, Y</strong>. (2021). Understanding
+speed-accuracy processing dynamics in aphasia using response time
+modeling. Seminars in Speech and Language. Jun;42(3):240-255.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2539,7 +2606,11 @@ d-title {
 <p>2020</p>
 </div>
 <div class="fcolumn2">
-<p>Evans, W. S., Hula, W.D., <strong>Quique, Y.</strong>, Starns, J.J. (2020). How much time do people with aphasia need to respond during picture naming? Estimating optimal response time cutoffs using a multinomial ex-gaussian approach. Journal of Speech, Language, and Hearing Research. 1–16.</p>
+<p>Evans, W. S., Hula, W.D., <strong>Quique, Y.</strong>, Starns, J.J.
+(2020). How much time do people with aphasia need to respond during
+picture naming? Estimating optimal response time cutoffs using a
+multinomial ex-gaussian approach. Journal of Speech, Language, and
+Hearing Research. 1–16.</p>
 </div>
 </div>
 <div class="fcolumns">
@@ -2547,11 +2618,15 @@ d-title {
 <p>2019</p>
 </div>
 <div class="fcolumn2">
-<p><strong>Quique, Y.</strong> M., Evans, W. S., &amp; Dickey, M. W. (2019) Acquisition and generalization responses in aphasia naming treatment: a meta-analysis of Semantic Feature Analysis outcomes. American Journal of Speech-Language Pathology, 28(1S), 230-246.</p>
+<p><strong>Quique, Y.</strong> M., Evans, W. S., &amp; Dickey, M. W.
+(2019) Acquisition and generalization responses in aphasia naming
+treatment: a meta-analysis of Semantic Feature Analysis outcomes.
+American Journal of Speech-Language Pathology, 28(1S), 230-246.</p>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

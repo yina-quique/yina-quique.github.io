@@ -72,7 +72,7 @@ Key Interests
 
 - `r fontawesome::fa("chart-line")` Aphasia treatment outcomes
 
-- `r fontawesome::fa("globe-americas")`Spanish speakers with aphasia
+- `r fontawesome::fa("earth-americas")`Spanish speakers with aphasia
 
 - `r fontawesome::fa("hospital-user")` Health services and outcomes research
 

@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1030,10 +1031,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1863,6 +1860,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1877,6 +1880,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1976,6 +2004,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1998,7 +2028,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2347,7 +2377,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2438,12 +2468,13 @@ d-title {
 </style>
 </div>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><h2>Presentations</h2></p>
+<h2>Presentations</h2>
 </div>
 <div class="layout-chunk" data-layout="l-body-outset">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/2022 CAC poster.pdf"> <img src="images/2022%20CAC%20poster.png" class = "feat_img"><br />
+<p><a href = "images/2022 CAC poster.pdf">
+<img src="images/2022%20CAC%20poster.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2451,14 +2482,18 @@ d-title {
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-Babbitt, E., <strong>Quique, Y., </strong> Ginsberg-Jaeckle, M., Larkin, E., Escarcega, S., Cherney, L., (2022) Training Interpreters in Aphasia Assessments: A Pilot Study. Abstract for poster presentation, 51th annual Clinical Aphasiology Conference
+Babbitt, E., <strong>Quique, Y., </strong> Ginsberg-Jaeckle, M., Larkin,
+E., Escarcega, S., Cherney, L., (2022) Training Interpreters in Aphasia
+Assessments: A Pilot Study. Abstract for poster presentation, 51th
+annual Clinical Aphasiology Conference
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/CAC 2021 vv2.pdf"> <img src="images/CAC%202021%20vv2.png" class = "feat_img"><br />
+<p><a href = "images/CAC 2021 vv2.pdf">
+<img src="images/CAC%202021%20vv2.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2466,14 +2501,19 @@ Babbitt, E., <strong>Quique, Y., </strong> Ginsberg-Jaeckle, M., Larkin, E., Esc
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-<strong>Quique,Y.</strong>, Cavanaugh, R.B., Starns, J.J., Boss, E., Hula, W.D., and Evans, W.S. (2020). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, 50th annual Clinical Aphasiology Conference
+<strong>Quique,Y.</strong>, Cavanaugh, R.B., Starns, J.J., Boss, E.,
+Hula, W.D., and Evans, W.S. (2020). Estimating the speed-accuracy
+tradeoff “Sweet Spot” in language performance for people with aphasia:
+replication and extension of a diffusion-model based approach. Abstract
+for poster presentation, 50th annual Clinical Aphasiology Conference
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/CAC_2021.pdf"> <img src="images/CAC_2021.png" class = "feat_img"><br />
+<p><a href = "images/CAC_2021.pdf">
+<img src="images/CAC_2021.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2481,14 +2521,18 @@ Babbitt, E., <strong>Quique, Y., </strong> Ginsberg-Jaeckle, M., Larkin, E., Esc
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-Cavanaugh, R.B., <strong>Quique, Y</strong>., Boss, E, Hula, W.D., and Evans, W.S. (2020). Practicing with BEARS: Active Ingredients in Semantic Feature Analysis. Abstract for poster presentation, 51st annual Clinical Aphasiology Conference, Online
+Cavanaugh, R.B., <strong>Quique, Y</strong>., Boss, E, Hula, W.D., and
+Evans, W.S. (2020). Practicing with BEARS: Active Ingredients in
+Semantic Feature Analysis. Abstract for poster presentation, 51st annual
+Clinical Aphasiology Conference, Online
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/AA_2021.pdf"> <img src="images/AA_2021.png" class = "feat_img"><br />
+<p><a href = "images/AA_2021.pdf">
+<img src="images/AA_2021.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2496,14 +2540,18 @@ Cavanaugh, R.B., <strong>Quique, Y</strong>., Boss, E, Hula, W.D., and Evans, W.
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-Cavanaugh, R.B., Kravetz, C., Jarold, L., <strong>Quique, Y.</strong>, Turner, R., Evans, W.S. Is there a research-practice dosage gap in aphasia rehabilitation? Abstract for poster presentation, Aphasia Access Leadership Summit, online.
+Cavanaugh, R.B., Kravetz, C., Jarold, L., <strong>Quique, Y.</strong>,
+Turner, R., Evans, W.S. Is there a research-practice dosage gap in
+aphasia rehabilitation? Abstract for poster presentation, Aphasia Access
+Leadership Summit, online.
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/AoA_final.pdf"> <img src="images/AoA_final.png" class = "feat_img"><br />
+<p><a href = "images/AoA_final.pdf">
+<img src="images/AoA_final.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2511,14 +2559,18 @@ Cavanaugh, R.B., Kravetz, C., Jarold, L., <strong>Quique, Y.</strong>, Turner, R
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-<strong>Quique, Y.</strong>, Evans, WS., Zipze, L., Dickey, MW., (2020) Get in sync: rhythm in speech entrainment as a mechanism for scripted-sentence learning in aphasia. Abstract for poster presentation, annual Academy of Aphasia.
+<strong>Quique, Y.</strong>, Evans, WS., Zipze, L., Dickey, MW., (2020)
+Get in sync: rhythm in speech entrainment as a mechanism for
+scripted-sentence learning in aphasia. Abstract for poster presentation,
+annual Academy of Aphasia.
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 <div class="fcolumns">
 <div class="fcolumn3">
-<p><a href = "images/CAC poster copy.pdf"> <img src="images/CAC%20poster%20copy.png" class = "feat_img"><br />
+<p><a href = "images/CAC poster copy.pdf">
+<img src="images/CAC%20poster%20copy.png" class = "feat_img"><br />
 </a></p>
 </div>
 <div class="fcolumnspace">
@@ -2526,13 +2578,18 @@ Cavanaugh, R.B., Kravetz, C., Jarold, L., <strong>Quique, Y.</strong>, Turner, R
 </div>
 <div class="fcolumn4">
 <p style="margin:0px">
-<strong>Quique, Y.</strong>, Evans, WS and Dickey, MW. Acquisition &amp; generalization responses in aphasia naming treatment: a meta-analysis of semantic feature analysis outcomes. (2017) Abstract for Research Symposium in Clinical Aphasiology selected poster presentation, annual Clinical Aphasiology Conference. Snowbird, Utah.
+<strong>Quique, Y.</strong>, Evans, WS and Dickey, MW. Acquisition &amp;
+generalization responses in aphasia naming treatment: a meta-analysis of
+semantic feature analysis outcomes. (2017) Abstract for Research
+Symposium in Clinical Aphasiology selected poster presentation, annual
+Clinical Aphasiology Conference. Snowbird, Utah.
 </p>
 </div>
 </div>
 <hr style="padding:0;margin:10px">
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
