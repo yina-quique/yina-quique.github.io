@@ -61,10 +61,10 @@ Main
 Postdoctoral Fellow, Northwestern University & Shirley Ryan AbilityLab
 <span style="font-size:0.9rem;"></span>  
 `r fontawesome::fa("envelope")` yinaquique@northwestern.edu `r knitr::asis_output("\U00B7")`
-`r fontawesome::fa("globe")` [yinaquique.com](https://yinaquique.netlify.app/) `r knitr::asis_output("\U00B7")`
+`r fontawesome::fa("globe")` [yinaquique.com](https://yina-quique.github.io/) `r knitr::asis_output("\U00B7")`
 `r fontawesome::fa("graduation-cap")` [Google Scholar](https://scholar.google.com/citations?user=TxAYxjAAAAAJ&hl=en)  
 `r fontawesome::fa("orcid")` [orcidID](https://orcid.org/0000-0001-9129-4742) `r knitr::asis_output("\U00B7")` 
-`r fontawesome::fa("github")` [Github](https://github.com/yyinaa) `r knitr::asis_output("\U00B7")` 
+`r fontawesome::fa("github")` [Github](https://github.com/yina-quique) `r knitr::asis_output("\U00B7")` 
 `r fontawesome::fa("github")` [Twitter](https://twitter.com/yinaquique)  
 <em style="font-size:0.8rem;">Last updated on `r Sys.Date()`</em>
 </div>
