@@ -11,6 +11,12 @@ navbar:
       href: publications.html
     - text: "Presentations"
       href: presentations.html
+    - text: "Resources"
+      menu: 
+        - text: "Repositorio (Español)"
+          href: repository_sp.html
+        - text: "Repository (English)"
+          href: repository_en.html
     - text: "CV"
       href: cv.html
     

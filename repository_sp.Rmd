@@ -1,0 +1,17 @@
+---
+title: "Repositorio"
+site: distill::distill_website
+output: 
+  distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Próximamente** encontrará aquí link para acceder a un repositorio de oraciones en español diseñadas por personas con afasia, cuidadores, y clínicos trabajando con esta población. El repositorio es completamente **gratuito**. 
+
+Las oraciones pueden ser **usadas por personas con afasia que hablen español quienes quieran aprender oraciones de la vida cotidiana.** Las oraciones están diseñadas para ser aprendidas usando un software llamado Anki. 
+
+Este repositorio se diseñó como parte de un proyecto financiado por el National Institute on Disability, Independent Living, and Rehabilitation Research (NIDILRR) Switzer Research Fellowship Program.
+
