@@ -9,7 +9,9 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-**Próximamente** encontrará aquí link para acceder a un repositorio de oraciones en español diseñadas por personas con afasia, cuidadores, y clínicos trabajando con esta población. El repositorio es completamente **gratuito**. 
+A continuación encontrará un link para acceder a un repositorio de oraciones en español diseñadas por personas con afasia, cuidadores, y clínicos trabajando con esta población. El repositorio es completamente **gratuito**. 
+
+https://yina-quique.github.io/repositorio/ 
 
 Las oraciones pueden ser **usadas por personas con afasia que hablen español quienes quieran aprender oraciones de la vida cotidiana.** Las oraciones están diseñadas para ser aprendidas usando un software llamado Anki. 
 
