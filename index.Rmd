@@ -144,7 +144,7 @@ knitr::include_graphics("images/Yina_Quique1.jpg")
 
 I am a clinician-scientist committed to improving rehabilitation outcomes and healthcare services for stroke survivors with aphasia. I am especially interested in developing culturally-sensitive and language-specific interventions for Spanish speakers with aphasia. 
 
-Outside of my work life, I enjoy coffee dates with my husband. I also love reading children's books to my niece and nephew.  
+Outside of my work life, I enjoy coffee dates with my husband. I also love spending time with my niece and nephew.  
 
 ::: {.centering}
 [`r fontawesome::fa("twitter")` Twitter](https://twitter.com/yinaquique){.borders}
@@ -160,13 +160,17 @@ Outside of my work life, I enjoy coffee dates with my husband. I also love readi
 
 ### My research path
 
-I was trained as a Speech and Language Pathologist in Colombia, where I practiced for more than seven years. During that time, it gradually became evident that aphasia assessments and treatments were not designed for Spanish-speaking individuals and that a direct translation from English resources did not fully meet the needs of my patients. Moreover, over 85% of published aphasia treatment research has focused on English, leaving a need to advance aphasia research and evidence-based service delivery in other languages and cultures. To address this disparity, my research program has included:
+I was trained as a Speech-Language Pathologist in Colombia, where I practiced for more than seven years. During that time, it gradually became evident that aphasia assessments and treatments were not designed for Spanish-speaking individuals and that a direct translation from English resources did not fully meet the needs of my patients. Moreover, over 85% of published aphasia treatment research has focused on English, leaving a need to advance aphasia research and evidence-based service delivery in other languages and cultures. To address this disparity, my research program has focused on: 
 
-1) a doctoral training that allowed me to help improving aphasia rehabilitation for Spanish speakers by adapting assessments and a gold-standard aphasia treatment –script training– for Colombian people with aphasia.
+1) developing culturally- and linguistically-specific aphasia interventions.
 
-2) An international aphasia research network, the Collaboration of Aphasia Trialists –CATs, where I work to adapt assessments for linguistically diverse populations. CATs has also helped me to foster international collaborations between educational, research, and healthcare institutions, preparing me to contribute to positive real-world changes in service delivery and outcomes for people with aphasia. 
+2) improving the efficacy and accessibility of aphasia treatments. 
 
-3) A theoretical-driven approach to understanding the mechanisms of aphasia treatment response combined with advanced statistical methodologies. 
 
-For my postdoctoral training, I'm strengthening my aphasia rehabilitation training by working with Dr. Leora Cherney at Shirley Ryan Ability Lab. I'm also combining it with practical training in healthcare service delivery and outcomes research at the Center for Education in Health Sciences at Northwestern University
+I completed my doctoral studies in Communication Science and Disorders at the [University of Pittsburgh](https://language-brain-lab.squarespace.com/alumni) with an [emphasis on aphasia rehabilitation](https://www.lrcl.pitt.edu/people/yina-quique-phd). I also worked as a postdoctoral fellow at Northwestern University and the [Shirley Ryan Ability lab](https://www.sralab.org/researchers/yina-m-quique-phd), strengthening my aphasia rehabilitation training and combining it with practical training in healthcare services and outcomes research. 
 
+
+I then expanded my work to global health. As a [Fogarty Global Health Fellow](https://www.hsph.harvard.edu/global-health-research-partnership/hbnu-current-fellows-and-alumni/2023-2024-fellows/), I am working on identifying barriers and facilitators of best-practice aphasia rehabilitation in Peru and Colombia. This experience has also allowed me to foster international collaborations between educational, research, and healthcare institutions. 
+
+
+In 2025, I will join the Department of [Speech and Hearing Sciences](https://shs.unm.edu/) at the University of New Mexico (UNM). I am excited about the opportunity to be a Latina in a Hispanic-serving institution in a minority-majority state. At UNM, I will continue developing culturally- and linguistically-specific interventions for minorities with aphasia and improving the efficacy and accessibility of aphasia treatments. 

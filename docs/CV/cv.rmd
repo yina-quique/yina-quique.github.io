@@ -83,7 +83,7 @@ Disclaimer {#disclaimer}
 
 ```{r}
 if(!params$pdf_mode){
-    cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/yina-quique/yina-quique.github.io/tree/master/CV/cv.pdf)")
+    cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/yyinaa/website_YQ/raw/master/CV/cv.pdf)")
   
 }
 ```
