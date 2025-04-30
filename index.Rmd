@@ -2,12 +2,10 @@
 title: "About"
 site: distill::distill_website
 links:
-  - label: '`r fontawesome::fa("twitter")` Twitter'
-    url: "https://twitter.com/yinaquique"
   - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/yina-quique"
   - label: '`r fontawesome::fa("paper-plane")` Email'
-    url: "mailto:yinaquique@northwestern.edu"
+    url: "mailto:yinaquique@unm.edu"
 output: html_document
 ---
 
@@ -147,9 +145,8 @@ I am a clinician-scientist committed to improving rehabilitation outcomes and he
 Outside of my work life, I enjoy coffee dates with my husband. I also love spending time with my niece and nephew.  
 
 ::: {.centering}
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/yinaquique){.borders}
 [`r fontawesome::fa("github")` Github](https://github.com/yina-quique){.borders}
-[`r fontawesome::fa("paper-plane")` Email](mailto:yinaquique@northwestern.edu){.borders}
+[`r fontawesome::fa("paper-plane")` Email](mailto:yinaquique@unm.edu){.borders}
 [`r fontawesome::fa("orcid")` ORCID](https://orcid.org/0000-0001-9129-4742){.borders}
 :::
 
@@ -173,4 +170,4 @@ I completed my doctoral studies in Communication Science and Disorders at the [U
 I then expanded my work to global health. As a [Fogarty Global Health Fellow](https://www.hsph.harvard.edu/global-health-research-partnership/hbnu-current-fellows-and-alumni/2023-2024-fellows/), I am working on identifying barriers and facilitators of best-practice aphasia rehabilitation in Peru and Colombia. This experience has also allowed me to foster international collaborations between educational, research, and healthcare institutions. 
 
 
-In 2025, I will join the Department of [Speech and Hearing Sciences](https://shs.unm.edu/) at the University of New Mexico (UNM). I am excited about the opportunity to be a Latina in a Hispanic-serving institution in a minority-majority state. At UNM, I will continue developing culturally- and linguistically-specific interventions for minorities with aphasia and improving the efficacy and accessibility of aphasia treatments. 
+In January 2025, I joined the Department of [Speech and Hearing Sciences](https://shs.unm.edu/) at the University of New Mexico (UNM). I am excited about the opportunity to be a Latina in a Hispanic-serving institution in a minority-majority state. At UNM, I continue developing culturally- and linguistically-specific interventions for minorities with aphasia and improving the efficacy and accessibility of aphasia treatments. 
